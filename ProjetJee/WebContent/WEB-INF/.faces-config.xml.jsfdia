@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#index.xhtml" PATH="/index.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#index.xhtml:0" NAME="item"
+   PATH="/index.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="success::#pages#homePage.xhtml"
+    NAME="output" PATH="/pages/homePage.xhtml"
+    TARGET="rules:#pages#homePage.xhtml" TITLE="success" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="admin::#pages#adminProductList.xhtml"
+    NAME="output1" PATH="/pages/adminProductList.xhtml"
+    TARGET="rules:#pages#adminProductList.xhtml" TITLE="admin" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#homePage.xhtml"
+  PATH="/pages/homePage.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#facelets#header.xhtml"
+  PATH="/facelets/header.xhtml" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#facelets#header.xhtml:0" NAME="item"
+   PATH="/facelets/header.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="mesCommandes::#pages#mesCommandes.xhtml"
+    NAME="output" PATH="/pages/mesCommandes.xhtml"
+    TARGET="rules:#pages#mesCommandes.xhtml" TITLE="mesCommandes" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#mesCommandes.xhtml"
+  PATH="/pages/mesCommandes.xhtml" SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#adminProductList.xhtml"
+  PATH="/pages/adminProductList.xhtml" SHAPE="256,289,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#adminProductList.xhtml:0" NAME="item"
+   PATH="/pages/adminProductList.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="editPage::#pages#editProduit.xhtml"
+    NAME="output" PATH="/pages/editProduit.xhtml"
+    TARGET="rules:#pages#editProduit.xhtml" TITLE="editPage" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="addPage::#pages#addProduct.xhtml"
+    NAME="output1" PATH="/pages/addProduct.xhtml"
+    TARGET="rules:#pages#addProduct.xhtml" TITLE="addPage" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#editProduit.xhtml"
+  PATH="/pages/editProduit.xhtml" SHAPE="240,401,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#addProduct.xhtml"
+  PATH="/pages/addProduct.xhtml" SHAPE="480,273,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

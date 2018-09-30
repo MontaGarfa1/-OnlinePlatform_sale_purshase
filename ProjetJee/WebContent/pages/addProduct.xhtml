@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui" template="/facelets/layout.xhtml">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Add New Product</title>
+
+</h:head>
+<h:body>
+	<h:form>
+		<ui:insert>
+			<ui:include src="/facelets/headerAdmin.xhtml"></ui:include>
+		</ui:insert>
+	</h:form>
+	<h:form>
+		<p:panel header="Validate">
+			<p:messages />
+
+			<h:panelGrid columns="5" cellpadding="5">
+				<h:outputLabel for="name" value="Name Product: " />
+				<p:inputText id="name" value="#{produitBean.name}"
+					label="Name" />
+				<p:message for="name" />
+				<h:outputText value="#{produitBean.produit.name}" />
+
+				<h:outputLabel for="categorie" value="Categorie : " />
+				<p:selectOneMenu id="categorie"
+					value="#{produitBean.idcategorie}" effect="fold"
+					editable="true">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItems value="#{categorieBean.listCat}" var="list" itemLabel="#{list.idCategorie}" itemValue="#{list.idcategorie}"/>
+				</p:selectOneMenu>
+				<h:outputText value="#{produitBean.idcategorie}" />
+				<p:separator />
+				<h:outputLabel for="price" value="Price Unity: " />
+				<p:inputText id="price" value="#{produitBean.price}"
+					label="Price" />
+				<p:message for="price" />
+				<h:outputText value="#{produitBean.price}" />
+
+				<h:outputLabel for="stock" value="Stock :" />
+				<p:inputText id="stock" value="#{produitBean.stock}"
+					label="Stock" />
+				<p:message for="stock" />
+				<h:outputText value="#{produitBean.stock}" />
+				
+				<h:outputLabel for="description" value="description: " />
+				<p:inputText id="description" value="#{produitBean.description}"
+					label="description" />
+				<p:message for="description" />
+				<h:outputText value="#{produitBean.produit.description}" />
+
+				<h:outputLabel for="images" value="Image: " />
+				<p:inputText id="images" value="#{produitBean.images}"
+					label="Images" />
+				<p:message for="images" />
+				<h:outputText value="#{produitBean.images}" />
+
+
+			</h:panelGrid>
+
+			<p:commandButton value="#Add" action="#{produitBean.addProduit}" ajax="false" icon="ui-icon-check"
+				validateClient="true" />
+		</p:panel>
+	</h:form>
+
+	<h:form>
+		<ui:insert>
+			<ui:include src="/facelets/footer.xhtml"></ui:include>
+		</ui:insert>
+	</h:form>
+
+</h:body>
+</html>

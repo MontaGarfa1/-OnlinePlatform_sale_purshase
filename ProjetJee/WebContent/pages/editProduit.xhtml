@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Edit Produit</title>
+
+</h:head>
+<h:body>
+	<ui:insert>
+		<ui:include src="/facelets/headerAdmin.xhtml"></ui:include>
+	</ui:insert>
+
+	<p:separator />
+	<h:panelGroup>
+
+
+		<table>
+			<tr>
+				<td><p:outputLabel value="Name Product: " for="name"></p:outputLabel></td>
+				<td><p:inputText value="#{produitBean.name}"
+						id="name"></p:inputText></td>
+			</tr>
+
+			<tr>
+				<td><p:outputLabel value="Price: " for="price"></p:outputLabel></td>
+				<td><p:inputText value="#{produitBean.price}"
+						id="price"></p:inputText></td>
+			</tr>
+
+
+			<tr>
+				<td><p:outputLabel value="Quantity: " for="stock"></p:outputLabel></td>
+				<td><p:outputLabel value="#{produitBean.stock}" id="stock" ></p:outputLabel></td>
+			</tr>
+			<tr>
+				<td><p:outputLabel value="Photo: " for="photo"></p:outputLabel></td>
+				<td><p:inputText value="#{produitBean.images}"
+						id="photo"></p:inputText></td>
+			</tr>
+
+			<tr>
+				<td><p:outputLabel value="Category: " for="categorie"></p:outputLabel></td>
+				<td><p:inputText value="#{produitBean.idcategorie}"
+						id="categorie"></p:inputText></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><p:commandButton value="Confirm Update" actionListener="#{produitBean.editProduit}"></p:commandButton></td>
+			</tr>
+		</table>
+	</h:panelGroup>
+
+
+
+
+</h:body>
+</html>

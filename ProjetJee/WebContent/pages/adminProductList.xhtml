@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Product List</title>
+	<link rel="stylesheet" type="text/css"
+		href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.css"></link>
+	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<script type="text/javascript" charset="utf8"
+		src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+
+	<script>
+	$(document).ready(function(){
+	    $('.produitTable').DataTable();
+	});
+</script>
+
+</h:head>
+<h:body>
+	<h:form>
+		<ui:insert>
+			<ui:include src="/facelets/headerAdmin.xhtml"></ui:include>
+		</ui:insert>
+	</h:form>
+	<p:separator></p:separator>
+
+		<h:form>
+		<p:messages autoUpdate="true"></p:messages>
+
+		<p:growl id="messages" />
+
+		<p:menubar>
+			<f:facet name="options">
+				<p:commandButton value="Add New Product" action="#{produitBean.addPage}"
+					icon="ui-icon-extlink" />
+			</f:facet>
+		</p:menubar>
+	</h:form>
+
+	<p:separator></p:separator>
+
+	<h:form id="form">
+
+		<p:growl id="msgs" showDetail="true" />
+		<p:dataTable  var="o" value="#{produitBean.listProduit}" id="produitTable">
+
+			<f:facet name="header">
+				Product List
+			</f:facet>
+			<p:column headerText="Show Details" style="width:55px">
+				<p:rowToggler />
+			</p:column>
+			<p:column headerText="Id Product">
+				<h:outputText var="idp" value="#{o.idProduit}" >
+				</h:outputText>
+			</p:column>
+
+			<p:column headerText="Id Category">
+				<h:outputText value="#{o.idCategorie}" />
+			</p:column>
+
+			<p:column headerText="Name Product">
+				<h:outputText value="#{o.name}" />
+			</p:column>
+
+			<p:column headerText="Price Unity">
+				<h:outputText value="#{o.price}">
+					<f:convertNumber type="currency" currencyCode="TND"></f:convertNumber>
+				</h:outputText>
+			</p:column>
+			
+			<p:column headerText="Sotck Quantity">
+				<h:outputText value="#{o.stock}" />
+			</p:column>
+			
+			<p:column>
+			
+				<p:commandButton  value="Update" action="#{produitBean.editPage}">
+					<f:param name="id" value="#{o.idProduit}"></f:param>
+				</p:commandButton>
+			</p:column>
+
+
+
+			<p:rowExpansion>
+				<p:panelGrid columns="2" columnClasses="label,value"
+					style="width:300px">
+					<f:facet name="header">
+						<p:graphicImage name="demo/images/car/#{car.brand}-big.gif" />
+					</f:facet>
+
+					<h:outputText value="Id Product:" />
+					<h:outputText value="#{o.idProduit}" />
+
+					<h:outputText value="Id Category" />
+					<h:outputText value="#{o.idCategorie}" />
+
+					<h:outputText value="Name Product:" />
+					<h:outputText value="#{o.name}" />
+
+					<h:outputText value="Price Unity:" />
+					<h:outputText value="#{o.price}">
+						<f:convertNumber type="currency" currencyCode="TND"></f:convertNumber>
+					</h:outputText>
+
+					<h:outputText value="Sotck Quantity" />
+					<h:outputText value="#{o.stock}" />
+
+				</p:panelGrid>
+			</p:rowExpansion>
+		</p:dataTable>
+
+	</h:form>
+
+	<h:form>
+		<ui:insert>
+			<ui:include src="/facelets/footer.xhtml"></ui:include>
+		</ui:insert>
+	</h:form>
+
+</h:body>
+</html>

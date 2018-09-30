@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<h:form id="form">
+		<h:panelGrid columns="2" cellpadding="5">
+
+		</h:panelGrid>
+	</h:form>
+
+	<p:megaMenu orientation="#{megaMenuView.orientation}"
+		style="margin-top:20px">
+		<p:menuitem value="Home Page" url="/pages/homePage.xhtml"
+			icon="ui-icon-close" />
+		<p:menuitem value="Command List" url="/pages/mesCommandes.xhtml"
+			icon="ui-icon-check" />
+		<p:menuitem value="Product Categorie" url="/pages/productList.xhtml"
+			icon="ui-icon-document" />
+		<p:menuitem value="My Account" url="/pages/editAccount.xhtml"
+			icon="ui-icon-pencil" />
+		<p:menuitem value="Shopping Cart" url="/pages/panier.xhtml"
+			icon="ui-icon-close" />
+		<p:menuitem value="Log Out" url="/index.xhtml" icon="ui-icon-close" />
+	</p:megaMenu>
+</ui:composition>
+

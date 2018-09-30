@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui" template="/facelets/layout.xhtml">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Gestion de projet</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:messages autoUpdate="true"></p:messages>
+
+		<p:growl id="messages" />
+
+		<p:menubar>
+			<f:facet name="options">
+				<p:inputText style="margin-right:10px"
+					value="#{clientBean.username}" placeholder="username" />
+				<p:password style="margin-right:10px" value="#{clientBean.password}"
+					placeholder="********" />
+					
+				<p:commandButton value="Login" action="#{clientBean.connecter}"
+					icon="ui-icon-extlink" />
+			</f:facet>
+		</p:menubar>
+	<p:separator></p:separator>
+	</h:form>
+		<h:form>
+		
+
+		<p:growl id="messages" />
+
+		<p:menubar>
+			<f:facet name="options">
+				<p:commandButton value="Administration" action="#{adminBean.connecter}"
+					icon="ui-icon-extlink" />
+			</f:facet>
+		</p:menubar>
+	</h:form>
+
+	<p:separator></p:separator>
+	<p:panel header="Sign Up">
+		<h:form>
+			<p:growl id="growl" sticky="true" showDetail="true" />
+
+			<p:wizard flowListener="#{clientBean.onFlowProcess}">
+				<p:tab id="personal" title="Personal">
+					<p:panel header="Personal Details">
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Firstname: *" />
+							<p:inputText value="#{clientBean.firstName}" required="true"
+								label="Firstname" />
+
+							<h:outputText value="Lastname: *" />
+							<p:inputText value="#{clientBean.lastName}" required="true"
+								label="Lastname" />
+							<h:outputText value="Username: *" />
+							<p:inputText value="#{clientBean.username}" required="true"
+								label="Username" />
+
+							<h:outputText value="Password: *" />
+							<p:inputText value="#{clientBean.password}" required="true"
+								label="Password" />
+
+							<h:outputText value="Skip to last: " />
+							<h:selectBooleanCheckbox value="#{clientBean.skip}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="address" title="Address">
+					<p:panel header="Address Details">
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Street: *" />
+							<p:inputText value="#{clientBean.adress}" required="true"
+								label="Street" />
+
+							<h:outputText value="Postal Code: *" />
+							<p:inputText value="#{clientBean.postalcode}" required="true"
+								label="Postal Code" />
+
+							<h:outputText value="City: *" />
+							<p:inputText value="#{clientBean.city}" required="true"
+								label="City" />
+
+							<h:outputText value="Country: *" />
+							<p:inputText value="#{clientBean.country}" required="true"
+								label="Country" />
+
+							<h:outputText value="Skip to last: " />
+							<h:selectBooleanCheckbox value="#{clientBean.skip}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="contact" title="Contact">
+					<p:panel header="Contact Information">
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Email: *" />
+							<p:inputText value="#{clientBean.email}" required="true"
+								label="Email" />
+
+							<h:outputText value="Phone: *" />
+							<p:inputText value="#{clientBean.phone}" required="true"
+								label="Phone" />
+
+
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="confirm" title="Confirmation">
+					<p:panel header="Confirmation">
+						<h:panelGrid id="confirmation" columns="3"
+							columnClasses="grid,grid,grid">
+							<h:panelGrid columns="2" columnClasses="label, value">
+								<h:outputText value="Firstname: " />
+								<h:outputText value="#{clientBean.firstName}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="Lastname: " />
+								<h:outputText value="#{clientBean.lastName}"
+									styleClass="outputLabel" />
+									<h:outputText value="Username: " />
+								<h:outputText value="#{clientBean.username}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="Password: " />
+								<h:outputText value="#{clientBean.password}"
+									styleClass="outputLabel" />
+							</h:panelGrid>
+
+							<h:panelGrid columns="2" columnClasses="label, value">
+								<h:outputText value="Street: " />
+								<h:outputText value="#{clientBean.adress}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="Postal: " />
+								<h:outputText value="#{clientBean.postalcode}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="City: " />
+								<h:outputText value="#{clientBean.user.city}"
+									styleClass="outputLabel" />
+								<h:outputText value="Country: " />
+								<h:outputText value="#{clientBean.country}"
+									styleClass="outputLabel" />
+							</h:panelGrid>
+
+							<h:panelGrid columns="2" columnClasses="label, value">
+								<h:outputText value="Email: " />
+								<h:outputText value="#{clientBean.email}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="Phone " />
+								<h:outputText value="#{clientBean.phone}"
+									styleClass="outputLabel" />
+
+
+								<h:outputText />
+								<h:outputText />
+							</h:panelGrid>
+						</h:panelGrid>
+
+						<p:commandButton value="Submit"
+							actionListener="#{clientBean.save}" update="growl"
+							process="@this" />
+					</p:panel>
+				</p:tab>
+			</p:wizard>
+
+		</h:form>
+	</p:panel>
+</h:body>
+</html>
